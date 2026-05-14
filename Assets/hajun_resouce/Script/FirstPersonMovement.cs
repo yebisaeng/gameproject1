@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+//에셋입니다.
 public class FirstPersonMovement : MonoBehaviour
 {
     public float speed = 5;

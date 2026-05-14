@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+//에셋입니다.
 public class FirstPersonLook : MonoBehaviour
 {
     [SerializeField]
