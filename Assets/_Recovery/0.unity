@@ -274,11 +274,6 @@ Transform:
   - {fileID: 919695994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!224 &334666099 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 406154995665508412, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
-  m_PrefabInstance: {fileID: 892947408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &464069998
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,6 +533,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581958709}
   m_CullTransparentMesh: 1
+--- !u!224 &649623052 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 406154995665508412, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
+  m_PrefabInstance: {fileID: 892947408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &831616493
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406154995665508412, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -20.26855
       objectReference: {fileID: 0}
     - target: {fileID: 406154995665508412, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
       propertyPath: m_LocalRotation.w
@@ -792,11 +792,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 406154995665508412, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -747.95056
       objectReference: {fileID: 0}
     - target: {fileID: 406154995665508412, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: -565.473
       objectReference: {fileID: 0}
     - target: {fileID: 406154995665508412, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -813,6 +813,10 @@ PrefabInstance:
     - target: {fileID: 4578350529160786703, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
       propertyPath: m_Name
       value: timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980895200299732270, guid: 76cf65b3d80c95a4b9db29fb83847b92, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1479,7 +1483,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 334666099}
+  - {fileID: 649623052}
   - {fileID: 2084443998}
   - {fileID: 1186610299}
   - {fileID: 464069999}
