@@ -4,11 +4,26 @@ using UnityEngine.InputSystem; //입출력용
 public class Stone_Generator : MonoBehaviour
 {
     public GameObject Stone_Prefab; //인스펙터에서 연결할 객체
-    
+    public GameObject p; //플레이어 객체
+    public float cool; //스탯 스크립트에서 현재 쿨타임 받아오는 변수
+    public float counting; //쿨타임을 세는 용도의 변수
+
+    void Start()
+    {
+        p=GameObject.Find("Player");
+        counting=0;
+    }
 
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame) //마우스 왼쪽 클릭 시
+        
+        
+        if (counting > 0)
+        {
+            counting-=Time.deltaTime;
+        }
+        
+        if (Mouse.current.leftButton.wasPressedThisFrame&&counting<=0) //마우스 왼쪽 클릭 시, 그리고 카운팅이 0 이하
         {
             // 1. 메인 카메라의 위치와 회전 정보를 가져옵니다.
             Transform camTransform = Camera.main.transform;
@@ -18,7 +33,7 @@ public class Stone_Generator : MonoBehaviour
             Vector3 spawnPos = camTransform.position + camTransform.forward * 2.0f;
 
             // 3. 돌 생성 (카메라와 같은 회전값 적용)
-            GameObject stone = Instantiate(Stone_Prefab, spawnPos, camTransform.rotation); //
+            GameObject stone = Instantiate(Stone_Prefab, spawnPos, camTransform.rotation); 
 
             // 4. 발사 방향: 화면 정중앙을 향하는 레이 생성
             Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
@@ -30,6 +45,9 @@ public class Stone_Generator : MonoBehaviour
                 // ray.direction을 사용하여 카메라가 바라보는 정중앙으로 힘을 줍니다.
                 controller.Shoot(ray.direction * 2000); //dir 값이 카메라 방향*2000
             }
+            
+            cool=p.GetComponent<Stat_Controller>().cool_time; //현재 쿨타임을 갱신
+            counting=cool;//갱신된 쿨타임으로 카운트 다운
         }
     }
 }
