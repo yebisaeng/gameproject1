@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &1696118555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5497930279350168230, guid: 1e5ed1a9caa2a8440b69cb688991f0d7, type: 3}
+  m_PrefabInstance: {fileID: 1770871968841167302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1770871968841167302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,6 +138,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1682320746234405047, guid: 1e5ed1a9caa2a8440b69cb688991f0d7, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1696118555}
     - target: {fileID: 5904437447480666666, guid: 1e5ed1a9caa2a8440b69cb688991f0d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.27327
