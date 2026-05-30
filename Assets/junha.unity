@@ -436,8 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DebuffManager
   gameTimer: {fileID: 67251644}
   debuffs:
-  - {fileID: 2007172326}
-  - {fileID: 695655910}
+  - {fileID: 1784937143}
   startDelay: 3
   interval: 5
   avoidRepeat: 1
@@ -460,15 +459,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7381026132218615509, guid: 6ae681f7302880d4c880f0d3c06f4459, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.67
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 7381026132218615509, guid: 6ae681f7302880d4c880f0d3c06f4459, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.8321767
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 7381026132218615509, guid: 6ae681f7302880d4c880f0d3c06f4459, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.339
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 7381026132218615509, guid: 6ae681f7302880d4c880f0d3c06f4459, type: 3}
       propertyPath: m_LocalRotation.w
@@ -503,6 +502,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ae681f7302880d4c880f0d3c06f4459, type: 3}
+--- !u!4 &1706423716 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5330373132181633087, guid: 1e5ed1a9caa2a8440b69cb688991f0d7, type: 3}
+  m_PrefabInstance: {fileID: 1770871968841167302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1784937142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784937144}
+  - component: {fileID: 1784937143}
+  m_Layer: 0
+  m_Name: BatSwarmDebuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1784937143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784937142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138372e82af3e774da9dc3618d856155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BatSwarmDebuff
+  debuffName: "\uBC15\uC950"
+  batPrefab: {fileID: 6674097022459675376, guid: acbe05f757c701a4d82a67bd41066ca5, type: 3}
+  basket: {fileID: 1706423716}
+  duration: 10
+  batCount: 12
+  innerRadius: 0.3
+  outerRadius: 4
+  blockAngle: 55
+  heightOffset: 0.8
+  heightRange: 1.5
+--- !u!4 &1784937144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784937142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47893, y: 7.45807, z: 5.75773}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!223 &1863138281 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 1712239589995527879, guid: 1e5ed1a9caa2a8440b69cb688991f0d7, type: 3}
@@ -634,3 +692,4 @@ SceneRoots:
   - {fileID: 437149986}
   - {fileID: 2007172327}
   - {fileID: 695655911}
+  - {fileID: 1784937144}
