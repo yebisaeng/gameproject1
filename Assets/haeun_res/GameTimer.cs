@@ -6,6 +6,9 @@ public class GameTimer : MonoBehaviour
     public TMP_Text timerText;
     private float currentTime = 15 * 60;
 
+    public float RemainingTime => currentTime;
+    public bool IsRunning => currentTime > 0f;
+
     // Update is called once per frame
     void Update()
     {
