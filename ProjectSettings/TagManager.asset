@@ -16,8 +16,8 @@ TagManager:
   - Player
   - Stone
   - Basket
-  - 
-  - 
+  - Enemy
+  - TransparentWall
   - 
   - 
   - 
