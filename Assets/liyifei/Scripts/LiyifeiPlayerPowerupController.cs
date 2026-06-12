@@ -99,6 +99,28 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
         return TryConsumeDamageSource(damageSource);
     }
 
+    public bool TryConsumeHazardImmunity(params string[] hazardKeywords)
+    {
+        if (immunityCharges <= 0 || hazardKeywords == null || hazardKeywords.Length == 0)
+            return false;
+
+        if (Time.time > immunityExpiresAt)
+        {
+            DisableShield();
+            return false;
+        }
+
+        if (!MatchesActiveDamageKeyword(hazardKeywords))
+            return false;
+
+        immunityCharges--;
+
+        if (immunityCharges <= 0)
+            DisableShield();
+
+        return true;
+    }
+
     private bool TryConsumeDamageSource(Transform damageSource)
     {
         if (immunityCharges <= 0 || Time.time > immunityExpiresAt || damageSource == null)
@@ -135,6 +157,34 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
 
         return sourceObject.GetComponentInChildren<Renderer>() != null ||
                sourceObject.GetComponentInChildren<Collider>() != null;
+    }
+
+    private bool MatchesActiveDamageKeyword(string[] hazardKeywords)
+    {
+        if (activeDamageSourceKeywords == null) return false;
+
+        for (int i = 0; i < activeDamageSourceKeywords.Length; i++)
+        {
+            string activeKeyword = activeDamageSourceKeywords[i];
+            if (string.IsNullOrWhiteSpace(activeKeyword)) continue;
+
+            for (int j = 0; j < hazardKeywords.Length; j++)
+            {
+                if (KeywordMatches(activeKeyword, hazardKeywords[j]))
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool KeywordMatches(string activeKeyword, string hazardKeyword)
+    {
+        if (string.IsNullOrWhiteSpace(activeKeyword) || string.IsNullOrWhiteSpace(hazardKeyword))
+            return false;
+
+        return activeKeyword.IndexOf(hazardKeyword, System.StringComparison.OrdinalIgnoreCase) >= 0 ||
+               hazardKeyword.IndexOf(activeKeyword, System.StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
     private void RemoveDamageSource(GameObject damageSource)

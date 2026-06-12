@@ -27,6 +27,9 @@ public class SpiderWebDebuff : DebuffBase
             yield break;
         }
 
+        if (TryBlockWithGhostMask(cam))
+            yield break;
+
         List<GameObject> webs = new List<GameObject>();
 
         for (int x = 0; x < columns; x++)
@@ -53,5 +56,15 @@ public class SpiderWebDebuff : DebuffBase
 
         foreach (var web in webs)
             if (web != null) Destroy(web);
+    }
+
+    private bool TryBlockWithGhostMask(Camera cam)
+    {
+        LiyifeiPlayerPowerupController powerups = cam.GetComponentInParent<LiyifeiPlayerPowerupController>();
+        if (powerups == null)
+            powerups = FindFirstObjectByType<LiyifeiPlayerPowerupController>();
+
+        return powerups != null &&
+               powerups.TryConsumeHazardImmunity("SpiderWeb", "Spider", "Cobweb");
     }
 }
