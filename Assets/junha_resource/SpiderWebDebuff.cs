@@ -18,6 +18,27 @@ public class SpiderWebDebuff : DebuffBase
     [SerializeField] private float maxScale = 0.25f;
     [SerializeField] private float zJitter = 0.05f;
 
+    private static readonly List<GameObject> activeWebs = new List<GameObject>();
+
+    public static int ClearActiveWebs()
+    {
+        int clearedCount = 0;
+
+        for (int i = activeWebs.Count - 1; i >= 0; i--)
+        {
+            GameObject web = activeWebs[i];
+            activeWebs.RemoveAt(i);
+
+            if (web == null) continue;
+
+            web.SetActive(false);
+            UnityEngine.Object.Destroy(web);
+            clearedCount++;
+        }
+
+        return clearedCount;
+    }
+
     protected override IEnumerator Run()
     {
         Camera cam = Camera.main;
@@ -28,7 +49,10 @@ public class SpiderWebDebuff : DebuffBase
         }
 
         if (TryBlockWithGhostMask(cam))
+        {
+            Debug.Log("\u3010GhostMask\u3011\u5df2\u963b\u6b62\u8718\u86db\u7f51\u751f\u6210\u5728\u6444\u50cf\u673a\u524d\u3002");
             yield break;
+        }
 
         List<GameObject> webs = new List<GameObject>();
 
@@ -49,13 +73,19 @@ public class SpiderWebDebuff : DebuffBase
                 web.transform.localScale = Vector3.one * Random.Range(minScale, maxScale);
 
                 webs.Add(web);
+                activeWebs.Add(web);
             }
         }
 
         yield return new WaitForSeconds(duration);
 
         foreach (var web in webs)
-            if (web != null) Destroy(web);
+        {
+            if (web == null) continue;
+
+            activeWebs.Remove(web);
+            Destroy(web);
+        }
     }
 
     private bool TryBlockWithGhostMask(Camera cam)
@@ -65,6 +95,6 @@ public class SpiderWebDebuff : DebuffBase
             powerups = FindFirstObjectByType<LiyifeiPlayerPowerupController>();
 
         return powerups != null &&
-               powerups.TryConsumeHazardImmunity("SpiderWeb", "Spider", "Cobweb");
+               powerups.TryConsumeHazardImmunity("\u8718\u86db\u7f51", "SpiderWeb", "Spider", "Cobweb");
     }
 }

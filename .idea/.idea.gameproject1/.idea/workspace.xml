@@ -11,12 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdc807a9-e244-41a3-8dff-e87d30ba2890" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.gameproject1/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gameproject1/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.gameproject1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gameproject1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/haeun_res/Lowpoly nature/Materials/Terrain/Terrain.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/haeun_res/Lowpoly nature/Materials/Terrain/Terrain.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/junha_resource/SpiderWebDebuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/junha_resource/SpiderWebDebuff.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/liyifei/Scripts/LiyifeiPlayerPowerupController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/liyifei/Scripts/LiyifeiPlayerPowerupController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +24,30 @@
     <option name="cachedIndexableFilesCount" value="30" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lando114&quot;
+  }
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="a2683e24-afd2-44db-b97d-16c2e280a68d" />
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/yebisaeng/gameproject1.git&quot;,
+    &quot;accountId&quot;: &quot;a2683e24-afd2-44db-b97d-16c2e280a68d&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/junha.unity" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -65,6 +79,7 @@
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "liyifei",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
@@ -72,7 +87,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -125,7 +140,9 @@
       <workItem from="1779844689330" duration="987000" />
       <workItem from="1780321098740" duration="1791000" />
       <workItem from="1780328462049" duration="357000" />
-      <workItem from="1781282372553" duration="176000" />
+      <workItem from="1781282372553" duration="334000" />
+      <workItem from="1781282711458" duration="65000" />
+      <workItem from="1781348662969" duration="810000" />
     </task>
     <servers />
   </component>
