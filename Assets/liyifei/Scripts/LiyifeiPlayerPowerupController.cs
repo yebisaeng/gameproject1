@@ -87,7 +87,26 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
                 break;
         }
 
-        Debug.Log($"[LiyifeiPowerup] Picked up {settings.displayName}.");
+        Debug.Log($"【道具】已拾取：{GetPowerupDebugName(settings.type)}。");
+    }
+
+    private string GetPowerupDebugName(LiyifeiPowerupType type)
+    {
+        switch (type)
+        {
+            case LiyifeiPowerupType.MagicStone:
+                return "魔法石";
+            case LiyifeiPowerupType.Broom:
+                return "扫帚";
+            case LiyifeiPowerupType.GhostMask:
+                return "GhostMask（幽灵面具）";
+            case LiyifeiPowerupType.PumpkinPie:
+                return "南瓜派";
+            case LiyifeiPowerupType.Stopwatch:
+                return "秒表";
+            default:
+                return type.ToString();
+        }
     }
 
     public bool TryConsumeDamageImmunity(Collider source)
@@ -99,7 +118,7 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
         return TryConsumeDamageSource(damageSource);
     }
 
-    public bool TryConsumeHazardImmunity(params string[] hazardKeywords)
+    public bool TryConsumeHazardImmunity(string hazardName, params string[] hazardKeywords)
     {
         if (immunityCharges <= 0 || hazardKeywords == null || hazardKeywords.Length == 0)
             return false;
@@ -114,6 +133,8 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
             return false;
 
         immunityCharges--;
+        if (string.IsNullOrWhiteSpace(hazardName)) hazardName = "危险效果";
+        Debug.Log($"【GhostMask】已阻挡一次{hazardName}。剩余免伤次数：{immunityCharges}。");
 
         if (immunityCharges <= 0)
             DisableShield();
@@ -131,6 +152,7 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
 
         int scoreBeforeHit = basket != null ? basket.score : 0;
         immunityCharges--;
+        Debug.Log($"【GhostMask】已阻挡一次伤害来源：{damageSource.name}。剩余免伤次数：{immunityCharges}。");
 
         if (destroyBlockedDamageSource)
             RemoveDamageSource(damageSource.gameObject);
@@ -216,6 +238,10 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
 
     private void StartBroomBuff(LiyifeiPowerupSettings settings)
     {
+        int clearedWebs = SpiderWebDebuff.ClearActiveWebs();
+        if (clearedWebs > 0)
+            Debug.Log($"【扫帚】已清除脸上的蜘蛛网，数量：{clearedWebs}。");
+
         if (broomRoutine != null) StopCoroutine(broomRoutine);
         broomRoutine = StartCoroutine(BroomBuffRoutine(settings));
     }
@@ -277,6 +303,7 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
         immunityExpiresAt = Time.time + settings.immunityDuration;
         activeDamageSourceKeywords = settings.damageSourceKeywords;
         EnableShield(settings.damageSourceDestroyRadius);
+        Debug.Log($"【GhostMask】已触发。免伤次数：{immunityCharges}，持续时间：{settings.immunityDuration:0.#}秒，可阻挡：{GetKeywordDebugNames(activeDamageSourceKeywords)}。");
 
         WaitForSeconds wait = new WaitForSeconds(Mathf.Max(0.02f, settings.damageSourceScanInterval));
 
@@ -305,6 +332,35 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
             if (TryConsumeDamageSource(damageSource))
                 return;
         }
+    }
+
+    private string GetKeywordDebugNames(string[] keywords)
+    {
+        if (keywords == null || keywords.Length == 0)
+            return "无";
+
+        string[] names = new string[keywords.Length];
+        for (int i = 0; i < keywords.Length; i++)
+            names[i] = GetKeywordDebugName(keywords[i]);
+
+        return string.Join("、", names);
+    }
+
+    private string GetKeywordDebugName(string keyword)
+    {
+        if (string.IsNullOrWhiteSpace(keyword))
+            return "空";
+
+        if (keyword.IndexOf("Ghost", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            return "幽灵";
+        if (keyword.IndexOf("Bat", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            return "蝙蝠";
+        if (keyword.IndexOf("Spider", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            return "蜘蛛";
+        if (keyword.IndexOf("Cobweb", System.StringComparison.OrdinalIgnoreCase) >= 0)
+            return "蜘蛛网";
+
+        return keyword;
     }
 
     private IEnumerator CancelBlockedDamageEffects(int scoreBeforeHit)
