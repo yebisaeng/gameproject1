@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameTimer : MonoBehaviour
 {
     public TMP_Text timerText;
-    public float maxTime = 5 * 60;
+    public float maxTime = 60f;
     public float currentTime;
 
     public Game_SET_main_end gameManager;
