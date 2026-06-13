@@ -20,7 +20,7 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
     [SerializeField] private bool destroyBlockedDamageSource = true;
 
     private static readonly FieldInfo CurrentTimeField =
-        typeof(GameTimer).GetField("currentTime", BindingFlags.Instance | BindingFlags.NonPublic);
+        typeof(GameTimer).GetField("currentTime", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
 
     private Coroutine damageRoutine;
     private Coroutine broomRoutine;
@@ -324,9 +324,10 @@ public class LiyifeiPlayerPowerupController : MonoBehaviour
     private void AddTimerSeconds(float seconds)
     {
         if (gameTimer == null || CurrentTimeField == null) return;
-
         float currentTime = (float)CurrentTimeField.GetValue(gameTimer);
-        CurrentTimeField.SetValue(gameTimer, currentTime + seconds);
+        float newTime = Mathf.Min(currentTime + seconds, gameTimer.maxTime);
+
+        CurrentTimeField.SetValue(gameTimer, newTime);
     }
 
     private void EnhanceActiveProjectiles(string[] keywords, float endsAt, bool destroyProjectileOnHit)

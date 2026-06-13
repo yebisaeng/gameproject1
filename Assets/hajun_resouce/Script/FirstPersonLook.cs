@@ -17,7 +17,7 @@ public class FirstPersonLook : MonoBehaviour
         character = GetComponentInParent<FirstPersonMovement>().transform;
     }
 
-    void Start()
+    void Awake()
     {
         // Lock the mouse cursor to the game screen.
         Cursor.lockState = CursorLockMode.Locked;
