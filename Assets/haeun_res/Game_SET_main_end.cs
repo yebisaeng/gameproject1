@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
 
 public class Game_SET_main_end : MonoBehaviour
 {
@@ -9,7 +9,10 @@ public class Game_SET_main_end : MonoBehaviour
     public GameObject Ending;
 
     [Header("Ending Text")]
-    public Text Ending_txt;
+    public TextMeshProUGUI Ending_txt;
+
+    [Header("Team Script Reference")]
+    public Basket_Controller basketController;
 
     [Header("Player Scripts to Disable")]
     public FirstPersonLook firstPersonLookScript;
@@ -47,40 +50,44 @@ public class Game_SET_main_end : MonoBehaviour
         SetPlayerScriptsEnabled(true);
     }
 
-    //시간 끝났을 때 호출할 함수 게임오버 or 게임클리어
-    public void GameOver()
+    //시간 끝났을 때 호출할 함수 게임오버 or 게임클리어 판단
+    public void CheckGameResult()
     {
         Time.timeScale = 0f;
-        if (Ending_txt != null) Ending_txt.text = "GAME OVER\n시간 초과!";
-        Ending.SetActive(true);
-
-        // 1. 마우스 다시 보이기 (재시작 버튼 등을 누르기 위해)
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        // 2. 플레이어 조작 스크립트 끄기
         SetPlayerScriptsEnabled(false);
-    }
 
-    public void GameClear()
-    {
-        Time.timeScale = 0f; // 게임 정지
-        if (Ending_txt != null) Ending_txt.text = "GAME CLEAR!\n축하합니다!";
+        if (basketController != null && Ending_txt != null)
+        {
+            if (basketController.score >= basketController.goal)
+            {
+                Ending_txt.text = "GAME CLEAR!";
+            }
+            else
+            {
+                Ending_txt.text = "GAME OVER\n시간 초과!";
+            }
+        }
+
         Ending.SetActive(true);
-
-        // 1. 마우스 다시 보이기
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        // 2. 플레이어 조작 스크립트 끄기
-        SetPlayerScriptsEnabled(false);
     }
 
     // [Restart_Btn]에 연결할 함수
     public void RestartGame()
     {
-        // 현재 씬을 처음부터 다시 로드
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // [Quit_Btn]에 연결할 함수 (게임 종료)
+    public void QuitGame()
+    {
+        // 유니티 에디터에서 실행 중일 경우 플레이 모드를 종료
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 
     // 플레이어 조작 스크립트들의 활성화/비활성화를 한 번에 관리
