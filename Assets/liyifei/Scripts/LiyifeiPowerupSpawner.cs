@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -175,8 +176,9 @@ public class LiyifeiPowerupSpawner : MonoBehaviour
         Vector3 fallback = new Vector3(areaCenter.x, transform.position.y, areaCenter.y);
         if (groundCollider != null)
             fallback.y = groundCollider.bounds.max.y;
-
+        UnityEngine.Debug.LogWarning("랜덤 스폰 위치를 찾지 못해 고정 위치(Fallback)에 스폰합니다! 바닥 콜라이더 설정이나 레이어 마스크를 확인하세요.");
         return fallback + Vector3.up * groundOffset;
+
     }
 
     private GameObject CreatePickupObject(LiyifeiPowerupSettings settings)
