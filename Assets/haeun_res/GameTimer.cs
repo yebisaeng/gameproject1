@@ -35,7 +35,7 @@ public class GameTimer : MonoBehaviour
 
                 if (gameManager != null)
                 {
-                    gameManager.GameOver();
+                    gameManager.CheckGameResult();
                 }
             }
         }
@@ -49,6 +49,6 @@ public class GameTimer : MonoBehaviour
 
     public void AddTime(float amount)
     {
-        currentTime = Mathf.Min(currentTime, maxTime);
+        currentTime = Mathf.Min(currentTime + amount, maxTime);
     }
 }
