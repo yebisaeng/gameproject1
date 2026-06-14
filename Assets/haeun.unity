@@ -119,6 +119,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &238137929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7061693246605692110, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+  m_PrefabInstance: {fileID: 3175433110543753277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b6b1bd358adc54eaa3a8cfb7c751a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreGhostDebuff
+--- !u!114 &580308422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8221036961370665731, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+  m_PrefabInstance: {fileID: 3175433110543753277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7282e2a0d27b334494b3cc2545488d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChargingGhostDebuff
+--- !u!114 &1608277295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7635827195761541074, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+  m_PrefabInstance: {fileID: 3175433110543753277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138372e82af3e774da9dc3618d856155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BatSwarmDebuff
+--- !u!114 &1689631903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 340200401982613692, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+  m_PrefabInstance: {fileID: 3175433110543753277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9498f8dcc47978c438af543b1d3a95ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpiderWebDebuff
+--- !u!114 &1729468852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5534560954242179157, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+  m_PrefabInstance: {fileID: 3175433110543753277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b42a79db1d0ff54cada87bc995f73b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindDebuff
+--- !u!4 &1805611780 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5447553077033655027, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+  m_PrefabInstance: {fileID: 3175433110543753277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3175433110543753277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,6 +187,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 340200401982613692, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: duration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 693986039501678881, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.68619
@@ -167,9 +231,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: interval
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: startDelay
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: debuffs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: 'debuffs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1608277295}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: 'debuffs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1689631903}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: 'debuffs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1729468852}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: 'debuffs.Array.data[3]'
+      value: 
+      objectReference: {fileID: 580308422}
+    - target: {fileID: 3028021788595546261, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: 'debuffs.Array.data[4]'
+      value: 
+      objectReference: {fileID: 238137929}
     - target: {fileID: 4629977133864419117, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
       propertyPath: m_Name
       value: Haeun_Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635827195761541074, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: basket
+      value: 
+      objectReference: {fileID: 1805611780}
+    - target: {fileID: 7635827195761541074, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: heightOffset
+      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
