@@ -73,9 +73,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2167381047926737132}
   - component: {fileID: 4516676201742823169}
-  - component: {fileID: 311141356688673828}
   - component: {fileID: 3124367185877401342}
   - component: {fileID: -6670292551910972784}
+  - component: {fileID: -1574932539848790400}
   m_Layer: 0
   m_Name: broom
   m_TagString: Untagged
@@ -109,22 +109,79 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129844464726100151}
   m_Mesh: {fileID: -2024424910159720823, guid: f2b8287893d383e4281bec316339f93e, type: 3}
---- !u!23 &311141356688673828
-MeshRenderer:
+--- !u!114 &3124367185877401342
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3129844464726100151}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92126aaae6f27d4389e616a8eecee21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LiyifeiPowerupPickup
+  settings:
+    type: 1
+    displayName: 
+    prefab: {fileID: 0}
+    spawnWeight: 1
+    pickupRadius: 1.1
+    duration: 15
+    damageMultiplier: 2
+    destroyProjectileOnTargetHit: 1
+    destroyTargetKeywords:
+    - Bat
+    - Spider
+    - Cobweb
+    immunityCharges: 1
+    immunityDuration: 30
+    damageSourceDestroyRadius: 2.5
+    damageSourceScanInterval: 0.05
+    damageSourceKeywords:
+    - Ghost
+    - Bat
+    - Spider
+    moveSpeedMultiplier: 1.5
+    bonusSeconds: 30
+  targetPlayer: {fileID: 0}
+--- !u!65 &-6670292551910972784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129844464726100151}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.10917725, y: 0.8283179, z: 0.33720154}
+  m_Center: {x: 0, y: 0.41415894, z: -0.0000003054738}
+--- !u!137 &-1574932539848790400
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129844464726100151}
+  m_Enabled: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
-  m_LightProbeUsage: 1
+  m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 3
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
@@ -157,62 +214,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3124367185877401342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129844464726100151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a92126aaae6f27d4389e616a8eecee21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LiyifeiPowerupPickup
-  settings:
-    type: 1
-    displayName: 
-    prefab: {fileID: 0}
-    spawnWeight: 1
-    pickupRadius: 1.1
-    duration: 15
-    damageMultiplier: 2
-    destroyProjectileOnTargetHit: 1
-    destroyTargetKeywords:
-    - Bat
-    - Spider
-    - Cobweb
-    immunityCharges: 1
-    immunityDuration: 30
-    damageSourceKeywords:
-    - Ghost
-    - Bat
-    - Spider
-    moveSpeedMultiplier: 1.5
-    bonusSeconds: 30
-  targetPlayer: {fileID: 0}
---- !u!65 &-6670292551910972784
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3129844464726100151}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.10917725, y: 0.8283179, z: 0.33720154}
-  m_Center: {x: 0, y: 0.41415894, z: -0.0000003054738}
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -2024424910159720823, guid: f2b8287893d383e4281bec316339f93e, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_DirtyAABB: 1
 --- !u!1 &8125069319874126499
 GameObject:
   m_ObjectHideFlags: 0
