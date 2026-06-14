@@ -1,6 +1,7 @@
+using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class Game_SET_main_end : MonoBehaviour
 {
@@ -62,12 +63,17 @@ public class Game_SET_main_end : MonoBehaviour
         {
             if (basketController.score >= basketController.goal)
             {
-                Ending_txt.text = "GAME CLEAR!";
+                Ending_txt.text = "GAME CLEAR!\n당신은 아이들의 사탕을 구해냈습니다!";
             }
             else
             {
-                Ending_txt.text = "GAME OVER\n시간 초과!";
+                Ending_txt.text = "GAME OVER!\n시간 초과!";
             }
+        }
+        else
+        {
+            if (basketController == null) UnityEngine.Debug.LogWarning("경고: basketController가 할당되지 않았습니다!");
+            if (Ending_txt == null) UnityEngine.Debug.LogWarning("경고: Ending_txt가 할당되지 않았습니다!");
         }
 
         Ending.SetActive(true);
