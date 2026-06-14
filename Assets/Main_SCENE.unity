@@ -171,9 +171,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Haeun_Prefab
       objectReference: {fileID: 0}
-    - target: {fileID: 4629977133864419117, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 6418784198014717101, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418784198014717101, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780519255331289802, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: m_fontSize
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780519255331289802, guid: 8c639407ac92eb54bb6650a3c51ab2db, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
